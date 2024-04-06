@@ -1,0 +1,14 @@
+services:
+  backend:
+    image: node:21
+    volumes:
+      - ./backend:/app:ro
+    ports:
+      - 3000:3000
+    command: node ./app/index.js
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    ports:
+      - 8080:8080

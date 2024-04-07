@@ -1,59 +1,119 @@
-import { useRef, useState, Children} from 'react';
-import { easeIn, easeOut } from "polished";
-import { useBoolean } from "react-use";
-import { createReducer }from "@reduxjs/toolkit"
+import { useState } from "react";
+import { Movie, MovieCompany } from "./types";
+import { useGetMovies } from "./hooks/useGetMovies/useGetMovies";
+import { useGetMovieCompanies } from "./hooks/useGetMovieCompanies/useGetMovieCompanies";
+import { usePostReview } from "./hooks/usePostReview/usePostReview";
 
-// TODO: use https://giddy-beret-cod.cyclic.app/movieCompanies
-const mockMovieCompanyData: any = [
-  {id: "1", name: "Test Productions"},
-];
+export const App = () => {
+  // Data hooks
+  const {
+    movies,
+    isLoading: isLoadingMovies,
+    error: moviesError,
+    refetchMovies,
+  } = useGetMovies();
 
-// TODO: use https://giddy-beret-cod.cyclic.app/movies
-const mockMovieData: any = [
-  {id: "1", reviews: [6,8,3,9,8,7,8], title: "A Testing Film", filmCompanyId: "1", cost : 534, releaseYear: 2005},
-  {id: "2", reviews: [5,7,3,4,1,6,3], title: "Mock Test Film", filmCompanyId: "1", cost : 6234, releaseYear: 2006},
-];
+  const {
+    movieCompanies,
+    isLoading: isLoadingMovieCompanies,
+    error: movieCompaniesError,
+    refetchMovieCompanies,
+  } = useGetMovieCompanies();
 
-export const App = () =>  {
+  const {
+    isLoading: isSubmitReviewLoading,
+    error: submitReviewError,
+    postReview,
+  } = usePostReview();
 
-  const movieLength = useRef(mockMovieData.length);
-  const [selectedMovie, setSelectedMovie] = useState(0); 
+  const [selectedMovie, setSelectedMovie] = useState<Movie | undefined>();
+  const [reviewResponse, setReviewResponse] = useState<string | undefined>();
 
-  const refreshButton = (buttonText: any) => {
-    if (mockMovieCompanyData) {
-      return <button>{buttonText}</button>
-    } else {
-      return <p>No movies loaded yet</p>
-    }   
+  const handleRefreshClick = async () => {
+    refetchMovies();
+    refetchMovieCompanies();
+  };
+
+  const handleSubmitReview = async (review: number) => {
+    const response = await postReview(review);
+
+    if (!isSubmitReviewLoading || !submitReviewError) {
+      response && setReviewResponse(response.message);
+    }
+
+    setTimeout(() => {
+      setSelectedMovie(undefined);
+      setReviewResponse(undefined);
+    }, 2000);
   };
 
   return (
     <div>
-      <h2>Welcome to Movie database!</h2>
-      {refreshButton("Refresh")}
-      <p>Total movies displayed {movieLength.current}</p>
-      <span>Title - Review - Film Company</span>
-      <br/>
-      {mockMovieData.map((movie: any) => 
-        <span onClick={() => {setSelectedMovie(movie)}}>
-          {movie.title}{" "}
-          {movie.reviews.reduce((acc: any, i: any) => (acc + i)/movie.reviews.length, 0)?.toString().substring(0, 3)}{" "}
-          {mockMovieCompanyData.find((f: any) => f.id === movie.filmCompanyId)?.name}
-          <br/>
-        </span>
-      )}
-      <br/>
-      <div>
-       {selectedMovie ? selectedMovie.title as any ? "You have selected " +  selectedMovie.title  as any : "No Movie Title" : "No Movie Seelcted"}
-       {selectedMovie && <p>Please leave a review below</p> }
-       {selectedMovie && 
-        <form onSubmit={() => {}}>
-          <label>
-          Review:
-          <input type="text"/>
-        </label>
-        </form>}
-      </div>
+      {(isLoadingMovies || isLoadingMovieCompanies) && <div>Loading...</div>}
+      {(!!moviesError || !!movieCompaniesError) && <div>Movies Error</div>}
+      {!(isLoadingMovies || isLoadingMovieCompanies) &&
+        !(!!moviesError || !!movieCompaniesError) && (
+          <>
+            <h2>Welcome to Movie database!</h2>
+            <button
+              onClick={handleRefreshClick}
+              disabled={isLoadingMovies || isLoadingMovieCompanies}
+            >
+              Refresh
+            </button>
+            <p>Total movies displayed {movies.length}</p>
+            <span>Title - Review - Film Company</span>
+            <br />
+            {movies.map((movie: Movie) => (
+              <span
+                onClick={() => {
+                  setSelectedMovie(movie);
+                }}
+                key={movie.id}
+              >
+                {movie.title}{" "}
+                {movie.reviews
+                  .reduce(
+                    (acc: any, i: any) => (acc + i) / movie.reviews.length,
+                    0
+                  )
+                  ?.toString()
+                  .substring(0, 3)}{" "}
+                {
+                  movieCompanies.find(
+                    (f: MovieCompany) => f.id === movie.filmCompanyId
+                  )?.name
+                }
+                <br />
+              </span>
+            ))}
+            <br />
+            <div>
+              {selectedMovie
+                ? selectedMovie.title
+                  ? "You have selected " + selectedMovie.title
+                  : "No Movie Title"
+                : "No Movie Selected"}
+              {selectedMovie && <p>Please leave a review below</p>}
+              {selectedMovie && (
+                <>
+                  <form
+                    onSubmit={(e) => {
+                      e.preventDefault();
+                      handleSubmitReview(3);
+                    }}
+                  >
+                    <label>
+                      Review:
+                      <input type="text" />
+                    </label>
+                  </form>
+                  <div>{reviewResponse && reviewResponse}</div>
+                </>
+              )}
+            </div>
+          </>
+        )}
     </div>
   );
-}
+};

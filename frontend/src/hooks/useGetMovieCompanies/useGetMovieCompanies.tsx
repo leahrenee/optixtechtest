@@ -17,7 +17,7 @@ export const useGetMovieCompanies = (): GetMovieCompaniesResults => {
     } catch (err: any) {
       setError(err);
     } finally {
-      setIsLoading(false);
+      setTimeout(() => setIsLoading(false), 2000);
     }
   };
 

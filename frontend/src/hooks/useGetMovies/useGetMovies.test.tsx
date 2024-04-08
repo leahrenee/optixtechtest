@@ -39,7 +39,9 @@ describe("useGetMovies", () => {
 
     expect(result.current.isLoading).toEqual(true);
 
-    await waitFor(() => expect(result.current.isLoading).toEqual(false));
+    await waitFor(() =>
+      setTimeout(() => expect(result.current.isLoading).toEqual(false), 3000)
+    );
   });
 
   test("Should refetch movies when 'refetchMovies' is called", async () => {

@@ -11,10 +11,17 @@ Frontend:
 ### Further Improvements
 
 - Use a library for fetching data (ex: react-query or SWR) within data hooks to better handle caching/errors/loading states.
-- Add a loading buffer (around 2 seconds) so the page isn't so jumpy when awaiting a response from api.
 - Writing test for the api file.
 
   - Create tests for happy / sad path results for GET and POST request.
+
+- Writing test for /Components
+
+  - Mock both API get calls (Movie Companies and Movies)
+
+- Form
+
+  - When going from a mobile to desktop view, maintain users current input.
 
 Backend:
 

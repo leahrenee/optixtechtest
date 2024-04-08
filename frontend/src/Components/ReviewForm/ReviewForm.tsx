@@ -84,14 +84,18 @@ const ReviewForm = ({
   });
 
   return (
-    <StyledContainer data-testid="review-form">
+    <StyledContainer>
       <Typography style={{ marginBottom: "4px" }}>
         Please Enter Review for{" "}
         <span style={{ fontWeight: "bold", fontStyle: "italic" }}>
           {selectedMovie.title}
         </span>
       </Typography>
-      <form onSubmit={formik.handleSubmit} className={classes.form}>
+      <form
+        onSubmit={formik.handleSubmit}
+        className={classes.form}
+        data-testid="review-form"
+      >
         <TextField
           fullWidth
           variant="standard"

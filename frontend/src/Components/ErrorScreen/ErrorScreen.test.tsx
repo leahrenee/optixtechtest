@@ -21,7 +21,7 @@ describe("ErrorScreen", () => {
   test("Should match default snapshot", async () => {
     const { asFragment } = render(component);
 
-    expect(asFragment).toMatchSnapshot();
+    expect(asFragment()).toMatchSnapshot();
   });
 
   test("Should show correct alert for movie GET error", async () => {

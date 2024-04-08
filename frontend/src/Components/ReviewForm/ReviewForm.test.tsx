@@ -27,7 +27,7 @@ describe("ReviewForm", () => {
   test("Should match default snapshot", async () => {
     const { asFragment } = render(component);
 
-    expect(asFragment).toMatchSnapshot();
+    expect(asFragment()).toMatchSnapshot();
   });
 
   test("Should submit form with correct review", async () => {

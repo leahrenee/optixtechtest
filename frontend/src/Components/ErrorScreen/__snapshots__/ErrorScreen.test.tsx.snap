@@ -1,3 +1,184 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`ErrorScreen Should match default snapshot 1`] = `[Function]`;
+exports[`ErrorScreen Should match default snapshot 1`] = `
+<DocumentFragment>
+  <div
+    class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 css-86n417-MuiPaper-root"
+    data-testid="error-paper"
+  >
+    <p
+      class="MuiTypography-root MuiTypography-body1 css-z2eky3-MuiTypography-root"
+    >
+      Oops! Something went wrong.
+    </p>
+    <svg
+      aria-hidden="true"
+      class="MuiSvgIcon-root MuiSvgIcon-colorPrimary MuiSvgIcon-fontSizeLarge css-bsqp9w-MuiSvgIcon-root"
+      data-testid="SentimentVeryDissatisfiedIcon"
+      focusable="false"
+      viewBox="0 0 24 24"
+    >
+      <circle
+        cx="15.5"
+        cy="9.5"
+        r="1.5"
+      />
+      <circle
+        cx="8.5"
+        cy="9.5"
+        r="1.5"
+      />
+      <path
+        d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2M12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8m0-6c-2.33 0-4.32 1.45-5.12 3.5h1.67c.69-1.19 1.97-2 3.45-2s2.75.81 3.45 2h1.67c-.8-2.05-2.79-3.5-5.12-3.5"
+      />
+    </svg>
+    <button
+      class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-colorPrimary MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-colorPrimary css-lll1vm-MuiButtonBase-root-MuiButton-root"
+      data-testid="retry-button"
+      tabindex="0"
+      type="button"
+    >
+      Retry?
+      <span
+        class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+      />
+    </button>
+    <div
+      class="MuiSnackbar-root MuiSnackbar-anchorOriginTopRight css-1arijsr-MuiSnackbar-root"
+      data-testid="movie-companies-alert"
+      role="presentation"
+    >
+      <div
+        class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation0 MuiAlert-root MuiAlert-colorError MuiAlert-standardError MuiAlert-standard css-x7o5da-MuiPaper-root-MuiAlert-root"
+        direction="down"
+        role="alert"
+        style="opacity: 1; transform: scale(1, 1); transition: opacity 225ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,transform 150ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;"
+      >
+        <div
+          class="MuiAlert-icon css-1ytlwq5-MuiAlert-icon"
+        >
+          <svg
+            aria-hidden="true"
+            class="MuiSvgIcon-root MuiSvgIcon-fontSizeInherit css-1vooibu-MuiSvgIcon-root"
+            data-testid="ErrorOutlineIcon"
+            focusable="false"
+            viewBox="0 0 24 24"
+          >
+            <path
+              d="M11 15h2v2h-2zm0-8h2v6h-2zm.99-5C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8z"
+            />
+          </svg>
+        </div>
+        <div
+          class="MuiAlert-message css-1pxa9xg-MuiAlert-message"
+        >
+          <div
+            class="MuiTypography-root MuiTypography-body1 MuiTypography-gutterBottom MuiAlertTitle-root css-yslrua-MuiTypography-root-MuiAlertTitle-root"
+          >
+            Movies Error
+          </div>
+          <p
+            class="MuiTypography-root MuiTypography-body1 css-ahj2mt-MuiTypography-root"
+          >
+            Movies Error
+          </p>
+        </div>
+        <div
+          class="MuiAlert-action css-ki1hdl-MuiAlert-action"
+        >
+          <button
+            aria-label="Close"
+            class="MuiButtonBase-root MuiIconButton-root MuiIconButton-colorInherit MuiIconButton-sizeSmall css-1e0d89p-MuiButtonBase-root-MuiIconButton-root"
+            tabindex="0"
+            title="Close"
+            type="button"
+          >
+            <svg
+              aria-hidden="true"
+              class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall css-ptiqhd-MuiSvgIcon-root"
+              data-testid="CloseIcon"
+              focusable="false"
+              viewBox="0 0 24 24"
+            >
+              <path
+                d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"
+              />
+            </svg>
+            <span
+              class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+            />
+          </button>
+        </div>
+      </div>
+    </div>
+    <div
+      class="MuiSnackbar-root MuiSnackbar-anchorOriginTopRight css-1arijsr-MuiSnackbar-root"
+      data-testid="movies-alert"
+      role="presentation"
+    >
+      <div
+        class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation0 MuiAlert-root MuiAlert-colorError MuiAlert-standardError MuiAlert-standard css-x7o5da-MuiPaper-root-MuiAlert-root"
+        direction="down"
+        role="alert"
+        style="opacity: 1; transform: scale(1, 1); transition: opacity 225ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,transform 150ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;"
+      >
+        <div
+          class="MuiAlert-icon css-1ytlwq5-MuiAlert-icon"
+        >
+          <svg
+            aria-hidden="true"
+            class="MuiSvgIcon-root MuiSvgIcon-fontSizeInherit css-1vooibu-MuiSvgIcon-root"
+            data-testid="ErrorOutlineIcon"
+            focusable="false"
+            viewBox="0 0 24 24"
+          >
+            <path
+              d="M11 15h2v2h-2zm0-8h2v6h-2zm.99-5C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8z"
+            />
+          </svg>
+        </div>
+        <div
+          class="MuiAlert-message css-1pxa9xg-MuiAlert-message"
+        >
+          <div
+            class="MuiTypography-root MuiTypography-body1 MuiTypography-gutterBottom MuiAlertTitle-root css-yslrua-MuiTypography-root-MuiAlertTitle-root"
+          >
+            Movies Company Error
+          </div>
+          <p
+            class="MuiTypography-root MuiTypography-body1 css-ahj2mt-MuiTypography-root"
+          >
+            Movie Companies Error
+          </p>
+        </div>
+        <div
+          class="MuiAlert-action css-ki1hdl-MuiAlert-action"
+        >
+          <button
+            aria-label="Close"
+            class="MuiButtonBase-root MuiIconButton-root MuiIconButton-colorInherit MuiIconButton-sizeSmall css-1e0d89p-MuiButtonBase-root-MuiIconButton-root"
+            tabindex="0"
+            title="Close"
+            type="button"
+          >
+            <svg
+              aria-hidden="true"
+              class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall css-ptiqhd-MuiSvgIcon-root"
+              data-testid="CloseIcon"
+              focusable="false"
+              viewBox="0 0 24 24"
+            >
+              <path
+                d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"
+              />
+            </svg>
+            <span
+              class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+            />
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</DocumentFragment>
+`;

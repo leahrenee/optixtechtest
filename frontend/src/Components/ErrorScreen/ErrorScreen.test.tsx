@@ -19,13 +19,13 @@ describe("ErrorScreen", () => {
   });
 
   test("Should match default snapshot", async () => {
-    const { asFragment } = await act(() => render(component));
+    const { asFragment } = render(component);
 
     expect(asFragment).toMatchSnapshot();
   });
 
   test("Should show correct alert for movie GET error", async () => {
-    const { getByTestId } = await act(() => render(component));
+    const { getByTestId } = render(component);
 
     const moviesAlert = getByTestId("movies-alert");
 
@@ -33,7 +33,7 @@ describe("ErrorScreen", () => {
   });
 
   test("Should show correct alert for movie companies GET error", async () => {
-    const { getByTestId } = await act(() => render(component));
+    const { getByTestId } = render(component);
 
     const moviesAlert = getByTestId("movie-companies-alert");
 
@@ -41,7 +41,7 @@ describe("ErrorScreen", () => {
   });
 
   test("CLICK - Should call refetch for movies and movie companies when pressing retry", async () => {
-    const { getByTestId } = await act(() => render(component));
+    const { getByTestId } = render(component);
 
     const retryButton = getByTestId("retry-button");
 

@@ -47,7 +47,7 @@ export const mockMoviesData = [
 ];
 
 export const mockPostReviewRequest = {
-  score: 2,
+  review: "A wonderful test movie, passed every requirement!",
 };
 
 export const mockPostReviewResponse = {

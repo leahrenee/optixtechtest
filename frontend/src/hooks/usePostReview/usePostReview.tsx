@@ -11,7 +11,7 @@ export const usePostReview = (): PostReview => {
   const [error, setError] = useState(null);
 
   const postReview = async (
-    review: number
+    review: string
   ): Promise<PostReviewResponse | null> => {
     let response = null;
 
@@ -20,7 +20,7 @@ export const usePostReview = (): PostReview => {
       setError(null);
       response = await postData<PostReviewRequest, PostReviewResponse>(
         "submitReview",
-        { score: review }
+        { review }
       );
     } catch (err: any) {
       setError(err);

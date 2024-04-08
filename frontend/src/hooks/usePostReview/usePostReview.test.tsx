@@ -17,7 +17,11 @@ describe("usePostReview", () => {
 
     const { result } = renderHook(() => usePostReview());
 
-    const response = await act(() => result.current.postReview(2));
+    const response = await act(() =>
+      result.current.postReview(
+        "A wonderful test movie, passed every requirement!"
+      )
+    );
 
     await waitFor(() => expect(response?.message).toEqual("Success!"));
   });
@@ -31,7 +35,11 @@ describe("usePostReview", () => {
 
     const { result } = renderHook(() => usePostReview());
 
-    await act(() => result.current.postReview(2));
+    await act(() =>
+      result.current.postReview(
+        "A wonderful test movie, passed every requirement!"
+      )
+    );
 
     await waitFor(() => expect(result.current.error).toEqual(mockError));
   });
@@ -42,7 +50,9 @@ describe("usePostReview", () => {
     const { result } = renderHook(() => usePostReview());
 
     act(() => {
-      result.current.postReview(2);
+      result.current.postReview(
+        "A wonderful test movie, passed every requirement!"
+      );
     });
 
     expect(result.current.isLoading).toEqual(true);

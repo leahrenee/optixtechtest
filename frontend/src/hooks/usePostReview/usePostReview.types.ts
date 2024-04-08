@@ -1,11 +1,11 @@
 export type PostReview = {
   isLoading: boolean;
   error: Error | null;
-  postReview: (review: number) => Promise<PostReviewResponse | null>;
+  postReview: (review: string) => Promise<PostReviewResponse | null>;
 };
 
 export type PostReviewRequest = {
-  score: number;
+  review: string;
 };
 
 export type PostReviewResponse = {

@@ -13,17 +13,21 @@
   "dependencies": {
     "@emotion/react": "^11.10.5",
     "@emotion/styled": "^11.10.5",
+    "@mui/icons-material": "^5.15.15",
     "@mui/material": "^5.11.0",
     "@reduxjs/toolkit": "^1.9.5",
+    "formik": "^2.4.5",
     "polished": "^4.2.2",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-router": "^6.11.1",
     "react-router-dom": "^6.11.1",
-    "react-use": "^17.4.0"
+    "react-use": "^17.4.0",
+    "yup": "^1.4.0"
   },
   "devDependencies": {
     "@jest/globals": "^29.7.0",
+    "@testing-library/jest-dom": "^6.4.2",
     "@testing-library/react": "^14.2.2",
     "@types/react": "^18.0.18",
     "@types/react-dom": "^18.0.6",

@@ -15,10 +15,6 @@ Frontend:
 
   - Create tests for happy / sad path results for GET and POST request.
 
-- Writing test for /Components
-
-  - Mock both API get calls (Movie Companies and Movies)
-
 - Form
 
   - When going from a mobile to desktop view, maintain users current input.

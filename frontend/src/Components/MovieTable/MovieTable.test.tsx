@@ -1,18 +1,12 @@
 import MovieTable from "./MovieTable";
-import {
-  act,
-  fireEvent,
-  getByTestId,
-  render,
-  waitFor,
-} from "@testing-library/react";
+import { act, fireEvent, render } from "@testing-library/react";
 import { getData } from "../../api";
 import { mockMovieCompanyData, mockMoviesData } from "../../testData";
 
 jest.mock("../../api");
 const mockGetData = getData as jest.Mock;
 
-// Adding this promise to wait for the hardcoded 2 second loading delay
+// Adding this promise to wait for the 2 second loading delay
 const wait = () => new Promise((resolve) => setTimeout(resolve, 2200));
 
 describe("MovieTable", () => {
@@ -40,13 +34,17 @@ describe("MovieTable", () => {
     expect(asFragment()).toMatchSnapshot();
   });
 
-  test("Should match loading state", async () => {
-    const { getByTestId } = render(<MovieTable />);
+  test("Should show loading spinner when loading", async () => {
+    const { queryByTestId } = render(<MovieTable />);
 
-    expect(getByTestId("loading-spinner")).toBeVisible();
+    expect(queryByTestId("loading-spinner")).toBeInTheDocument();
+
+    await act(wait);
+
+    expect(queryByTestId("loading-spinner")).not.toBeInTheDocument();
   });
 
-  test("Should match error state", async () => {
+  test("Should show error screen when error", async () => {
     const mockError = new Error("Something went wrong");
 
     mockGetData.mockImplementation(({ path }) => {

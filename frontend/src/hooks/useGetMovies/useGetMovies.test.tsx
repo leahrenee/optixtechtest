@@ -7,6 +7,9 @@ import { mockMoviesData } from "../../testData";
 jest.mock("../../api");
 const mockGetData = getData as jest.Mock;
 
+// Adding this promise to wait for the 2 second loading delay
+const wait = () => new Promise((resolve) => setTimeout(resolve, 2200));
+
 describe("useGetMovies", () => {
   afterEach(() => {
     jest.clearAllMocks();
@@ -39,9 +42,9 @@ describe("useGetMovies", () => {
 
     expect(result.current.isLoading).toEqual(true);
 
-    await waitFor(() =>
-      setTimeout(() => expect(result.current.isLoading).toEqual(false), 3000)
-    );
+    await act(wait);
+
+    expect(result.current.isLoading).toEqual(false);
   });
 
   test("Should refetch movies when 'refetchMovies' is called", async () => {

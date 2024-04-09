@@ -44,13 +44,13 @@ exports[`ErrorScreen Should match default snapshot 1`] = `
       />
     </button>
     <div
-      class="MuiSnackbar-root MuiSnackbar-anchorOriginTopRight css-1arijsr-MuiSnackbar-root"
+      class="MuiSnackbar-root MuiSnackbar-anchorOriginBottomCenter css-1t20nyk-MuiSnackbar-root"
       data-testid="movie-companies-alert"
       role="presentation"
     >
       <div
         class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation0 MuiAlert-root MuiAlert-colorError MuiAlert-standardError MuiAlert-standard css-x7o5da-MuiPaper-root-MuiAlert-root"
-        direction="down"
+        direction="up"
         role="alert"
         style="opacity: 1; transform: scale(1, 1); transition: opacity 225ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,transform 150ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;"
       >
@@ -112,13 +112,13 @@ exports[`ErrorScreen Should match default snapshot 1`] = `
       </div>
     </div>
     <div
-      class="MuiSnackbar-root MuiSnackbar-anchorOriginTopRight css-1arijsr-MuiSnackbar-root"
+      class="MuiSnackbar-root MuiSnackbar-anchorOriginBottomCenter css-1t20nyk-MuiSnackbar-root"
       data-testid="movies-alert"
       role="presentation"
     >
       <div
         class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation0 MuiAlert-root MuiAlert-colorError MuiAlert-standardError MuiAlert-standard css-x7o5da-MuiPaper-root-MuiAlert-root"
-        direction="down"
+        direction="up"
         role="alert"
         style="opacity: 1; transform: scale(1, 1); transition: opacity 225ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,transform 150ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;"
       >

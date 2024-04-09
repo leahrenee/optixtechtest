@@ -28,7 +28,8 @@ import ErrorScreen from "../ErrorScreen/ErrorScreen";
 
 const classes = {
   tableContainer: "movie-table-container",
-  tableHeader: "movie-table-header",
+  tableToolbar: "movie-table-header",
+  tableColumnsHead: "movie-table-columns-head",
 };
 
 type SortType = "desc" | "asc" | undefined;
@@ -52,7 +53,7 @@ const StyledPaper = styled(Paper)(({ theme }) => ({
     alignItems: "center",
   },
 
-  [`& .${classes.tableHeader}`]: {
+  [`& .${classes.tableToolbar}`]: {
     display: "flex",
     flexDirection: "row",
     alignItems: "center",
@@ -60,18 +61,18 @@ const StyledPaper = styled(Paper)(({ theme }) => ({
     padding: "2px 12px",
     borderBottom: `1px solid ${theme.palette.divider}`,
   },
+
+  [`& .${classes.tableColumnsHead}`]: {
+    fontWeight: "bold",
+  },
 }));
 
 const MovieTable = () => {
-  const [selectedMovie, setSelectedMovie] = useState<Movie | undefined>();
-  const [errorShown, setErrorShown] = useState(false);
-  const [loadingShown, setloadingShown] = useState(false);
-  const [tableSort, setTableSort] = useState<SortType>(undefined);
-  const [modalOpen, setModalOpen] = useState(false);
+  const [selectedMovie, setSelectedMovie] = useState<Movie | null>(null);
+  const [tableSort, setTableSort] = useState<SortType>("desc");
   const [formResponseAlert, setFormResponseAlert] = useState("");
 
   const theme = useTheme();
-  const desktop = useMediaQuery(theme.breakpoints.up("sm"));
   const mobile = useMediaQuery(theme.breakpoints.down("sm"));
 
   // Data hooks
@@ -89,31 +90,14 @@ const MovieTable = () => {
     refetchMovieCompanies,
   } = useGetMovieCompanies();
 
-  useEffect(() => {
-    if (movieCompaniesError || moviesError) {
-      setErrorShown(true);
-    }
-  }, [movieCompaniesError, moviesError]);
+  const showError = !!moviesError || !!movieCompaniesError;
 
-  useEffect(() => {
-    if (isLoadingMovies || isLoadingMovieCompanies) {
-      setloadingShown(true);
-    } else {
-      setloadingShown(false);
-    }
-  }, [isLoadingMovies, isLoadingMovieCompanies]);
+  const isLoading = isLoadingMovies || isLoadingMovieCompanies;
 
-  useEffect(() => {
-    if (selectedMovie && mobile) {
-      setModalOpen(true);
-    } else {
-      setModalOpen(false);
-    }
-  }, [mobile, desktop, selectedMovie]);
+  const showModal = selectedMovie && mobile;
 
   const handleRefreshClick = async () => {
-    setSelectedMovie(undefined);
-    setErrorShown(false);
+    setSelectedMovie(null);
     refetchMovies();
     refetchMovieCompanies();
   };
@@ -125,34 +109,32 @@ const MovieTable = () => {
     );
   };
 
-  const handleSort = () => {
-    if (tableSort === "asc" || tableSort === undefined) {
-      setTableSort("desc");
-      movies.sort((a, b) => getMovieScore(a) - getMovieScore(b));
-    } else if (tableSort === "desc") {
-      setTableSort("asc");
-      movies.sort((a, b) => getMovieScore(b) - getMovieScore(a));
-    }
+  const handleSortOnClick = () => {
+    tableSort === "asc" ? setTableSort("desc") : setTableSort("asc");
   };
+
+  tableSort === "asc"
+    ? movies.sort((a, b) => getMovieScore(a) - getMovieScore(b))
+    : movies.sort((a, b) => getMovieScore(b) - getMovieScore(a));
 
   return (
     <>
-      {loadingShown && !errorShown ? (
+      {isLoading && !showError ? (
         <Box padding="40px" data-testid="loading-spinner">
           <CircularProgress size={60} />
         </Box>
       ) : (
         <StyledPaper>
-          {errorShown ? (
+          {showError ? (
             <ErrorScreen
               movieCompaniesError={movieCompaniesError}
               moviesError={moviesError}
               handleRefreshClick={handleRefreshClick}
-              errorShown={errorShown}
+              errorShown={showError}
             />
           ) : (
             <>
-              <Box className={classes.tableHeader}>
+              <Box className={classes.tableToolbar}>
                 {movies.length > 1 ? (
                   <Typography>Found {movies.length} Movies</Typography>
                 ) : (
@@ -160,7 +142,7 @@ const MovieTable = () => {
                 )}
                 <IconButton
                   onClick={handleRefreshClick}
-                  disabled={isLoadingMovies || isLoadingMovieCompanies}
+                  disabled={isLoading}
                   color="primary"
                   data-testid="refresh-button"
                 >
@@ -171,17 +153,22 @@ const MovieTable = () => {
                 <Table>
                   <TableHead>
                     <TableRow>
-                      <TableCell>Title</TableCell>
-                      <TableCell>
+                      <TableCell className={classes.tableColumnsHead}>
+                        Title
+                      </TableCell>
+                      <TableCell className={classes.tableColumnsHead}>
                         <TableSortLabel
+                          active
                           direction={tableSort}
-                          onClick={handleSort}
+                          onClick={handleSortOnClick}
                           data-testid="sort-movie-table"
                         >
                           Review Score
                         </TableSortLabel>
                       </TableCell>
-                      <TableCell>Film Company</TableCell>
+                      <TableCell className={classes.tableColumnsHead}>
+                        Film Company
+                      </TableCell>
                     </TableRow>
                   </TableHead>
                   <TableBody>
@@ -192,7 +179,6 @@ const MovieTable = () => {
                           key={movie.id}
                           onClick={() => {
                             setSelectedMovie(movie);
-                            mobile && setModalOpen(true);
                           }}
                           selected={selectedMovie?.id === movie.id}
                           sx={{ cursor: "pointer" }}
@@ -218,7 +204,7 @@ const MovieTable = () => {
               </TableContainer>
               {selectedMovie && (
                 <>
-                  {desktop ? (
+                  {!mobile ? (
                     <ReviewForm
                       selectedMovie={selectedMovie}
                       setSelectedMovie={setSelectedMovie}
@@ -226,11 +212,8 @@ const MovieTable = () => {
                     />
                   ) : (
                     <Modal
-                      open={modalOpen}
-                      onClose={() => {
-                        setModalOpen(!modalOpen);
-                        setSelectedMovie(undefined);
-                      }}
+                      open={!!showModal}
+                      onClose={() => setSelectedMovie(null)}
                     >
                       <Box sx={modalStyle}>
                         <ReviewForm

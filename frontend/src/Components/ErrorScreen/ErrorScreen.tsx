@@ -6,6 +6,8 @@ import {
   Snackbar,
   Typography,
   styled,
+  useMediaQuery,
+  useTheme,
 } from "@mui/material";
 import SentimentVeryDissatisfiedIcon from "@mui/icons-material/SentimentVeryDissatisfied";
 import { useState } from "react";
@@ -34,6 +36,9 @@ const ErrorScreen = ({
   const [showMovieCompaniesAlert, setShowMovieCompaniesAlert] =
     useState(errorShown);
 
+  const theme = useTheme();
+  const desktop = useMediaQuery(theme.breakpoints.up("sm"));
+
   return (
     <StyledPaper data-testid="error-paper">
       <Typography mb={2}>Oops! Something went wrong.</Typography>
@@ -49,7 +54,10 @@ const ErrorScreen = ({
       </Button>
       {moviesError && (
         <Snackbar
-          anchorOrigin={{ horizontal: "right", vertical: "top" }}
+          anchorOrigin={{
+            horizontal: desktop ? "right" : "center",
+            vertical: desktop ? "top" : "bottom",
+          }}
           open={showMovieCompaniesAlert && !!moviesError}
           data-testid="movie-companies-alert"
         >
@@ -64,7 +72,10 @@ const ErrorScreen = ({
       )}
       {movieCompaniesError && (
         <Snackbar
-          anchorOrigin={{ horizontal: "right", vertical: "top" }}
+          anchorOrigin={{
+            horizontal: desktop ? "right" : "center",
+            vertical: desktop ? "top" : "bottom",
+          }}
           open={showMoviesAlert && !!movieCompaniesError}
           data-testid="movies-alert"
         >

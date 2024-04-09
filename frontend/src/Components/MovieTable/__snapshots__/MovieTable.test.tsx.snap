@@ -3,7 +3,7 @@
 exports[`MovieTable Should match default snapshot 1`] = `
 <DocumentFragment>
   <div
-    class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 css-192owgk-MuiPaper-root"
+    class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 css-ydzyxs-MuiPaper-root"
   >
     <div
       class="movie-table-header MuiBox-root css-0"
@@ -48,17 +48,17 @@ exports[`MovieTable Should match default snapshot 1`] = `
             class="MuiTableRow-root MuiTableRow-head css-1q1u3t4-MuiTableRow-root"
           >
             <th
-              class="MuiTableCell-root MuiTableCell-head MuiTableCell-sizeMedium css-1ygcj2i-MuiTableCell-root"
+              class="MuiTableCell-root MuiTableCell-head MuiTableCell-sizeMedium movie-table-columns-head css-1ygcj2i-MuiTableCell-root"
               scope="col"
             >
               Title
             </th>
             <th
-              class="MuiTableCell-root MuiTableCell-head MuiTableCell-sizeMedium css-1ygcj2i-MuiTableCell-root"
+              class="MuiTableCell-root MuiTableCell-head MuiTableCell-sizeMedium movie-table-columns-head css-1ygcj2i-MuiTableCell-root"
               scope="col"
             >
               <span
-                class="MuiButtonBase-root MuiTableSortLabel-root css-1qgma8u-MuiButtonBase-root-MuiTableSortLabel-root"
+                class="MuiButtonBase-root MuiTableSortLabel-root Mui-active css-1qgma8u-MuiButtonBase-root-MuiTableSortLabel-root"
                 data-testid="sort-movie-table"
                 role="button"
                 tabindex="0"
@@ -66,7 +66,7 @@ exports[`MovieTable Should match default snapshot 1`] = `
                 Review Score
                 <svg
                   aria-hidden="true"
-                  class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiTableSortLabel-icon MuiTableSortLabel-iconDirectionAsc css-1vweko9-MuiSvgIcon-root-MuiTableSortLabel-icon"
+                  class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiTableSortLabel-icon MuiTableSortLabel-iconDirectionDesc css-3l415a-MuiSvgIcon-root-MuiTableSortLabel-icon"
                   data-testid="ArrowDownwardIcon"
                   focusable="false"
                   viewBox="0 0 24 24"
@@ -78,7 +78,7 @@ exports[`MovieTable Should match default snapshot 1`] = `
               </span>
             </th>
             <th
-              class="MuiTableCell-root MuiTableCell-head MuiTableCell-sizeMedium css-1ygcj2i-MuiTableCell-root"
+              class="MuiTableCell-root MuiTableCell-head MuiTableCell-sizeMedium movie-table-columns-head css-1ygcj2i-MuiTableCell-root"
               scope="col"
             >
               Film Company
@@ -116,7 +116,7 @@ exports[`MovieTable Should match default snapshot 1`] = `
             <td
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-1ex1afd-MuiTableCell-root"
             >
-              Flowers on the meadow
+              Back to the garden
             </td>
             <td
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-1ex1afd-MuiTableCell-root"
@@ -135,19 +135,17 @@ exports[`MovieTable Should match default snapshot 1`] = `
             <td
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-1ex1afd-MuiTableCell-root"
             >
-              Summer
+              Flowers on the meadow
             </td>
             <td
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-1ex1afd-MuiTableCell-root"
               data-testid="movie-2-score"
             >
-              0.3
+              0.6
             </td>
             <td
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-1ex1afd-MuiTableCell-root"
-            >
-              Test Company 1
-            </td>
+            />
           </tr>
           <tr
             class="MuiTableRow-root MuiTableRow-hover css-10cbwbc-MuiTableRow-root"
@@ -156,17 +154,19 @@ exports[`MovieTable Should match default snapshot 1`] = `
             <td
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-1ex1afd-MuiTableCell-root"
             >
-              Back to the garden
+              Summer
             </td>
             <td
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-1ex1afd-MuiTableCell-root"
               data-testid="movie-3-score"
             >
-              0.6
+              0.3
             </td>
             <td
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-1ex1afd-MuiTableCell-root"
-            />
+            >
+              Test Company 1
+            </td>
           </tr>
           <tr
             class="MuiTableRow-root MuiTableRow-hover css-10cbwbc-MuiTableRow-root"

@@ -13,7 +13,7 @@ import { Movie } from "../../types";
 
 interface Props {
   selectedMovie: Movie;
-  setSelectedMovie: React.Dispatch<React.SetStateAction<Movie | undefined>>;
+  setSelectedMovie: React.Dispatch<React.SetStateAction<Movie | null>>;
   handleFormSubmission: React.Dispatch<React.SetStateAction<string>>;
 }
 
@@ -46,7 +46,7 @@ const ReviewForm = ({
   setSelectedMovie,
   handleFormSubmission,
 }: Props) => {
-  const [reviewResponse, setReviewResponse] = useState<string>();
+  const [reviewResponse, setReviewResponse] = useState<string>("");
 
   // Post Hook
   const {
@@ -76,8 +76,8 @@ const ReviewForm = ({
       }
 
       setTimeout(() => {
-        setSelectedMovie(undefined);
-        setReviewResponse(undefined);
+        setSelectedMovie(null);
+        setReviewResponse("");
         handleFormSubmission("");
       }, 2000);
     },

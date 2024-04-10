@@ -96,16 +96,16 @@ const MovieTable = () => {
 
   const showModal = selectedMovie && mobile;
 
-  const handleRefreshClick = async () => {
+  const handleRefreshClick = () => {
     setSelectedMovie(null);
     refetchMovies();
     refetchMovieCompanies();
   };
 
   const getMovieScore = (movie: Movie) => {
-    return movie.reviews.reduce(
-      (acc: any, i: any) => (acc + i) / movie.reviews.length,
-      0
+    return (
+      movie.reviews.reduce((acc: any, i: any) => acc + i, 0) /
+      movie.reviews.length
     );
   };
 

@@ -101,7 +101,7 @@ exports[`MovieTable Should match default snapshot 1`] = `
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-1ex1afd-MuiTableCell-root"
               data-testid="movie-0-score"
             >
-              1.3
+              7.6
             </td>
             <td
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-1ex1afd-MuiTableCell-root"
@@ -122,7 +122,7 @@ exports[`MovieTable Should match default snapshot 1`] = `
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-1ex1afd-MuiTableCell-root"
               data-testid="movie-1-score"
             >
-              0.6
+              5.4
             </td>
             <td
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-1ex1afd-MuiTableCell-root"
@@ -141,7 +141,7 @@ exports[`MovieTable Should match default snapshot 1`] = `
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-1ex1afd-MuiTableCell-root"
               data-testid="movie-2-score"
             >
-              0.6
+              4.7
             </td>
             <td
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-1ex1afd-MuiTableCell-root"
@@ -160,7 +160,7 @@ exports[`MovieTable Should match default snapshot 1`] = `
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-1ex1afd-MuiTableCell-root"
               data-testid="movie-3-score"
             >
-              0.3
+              2.6
             </td>
             <td
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-1ex1afd-MuiTableCell-root"
@@ -181,7 +181,7 @@ exports[`MovieTable Should match default snapshot 1`] = `
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-1ex1afd-MuiTableCell-root"
               data-testid="movie-4-score"
             >
-              0.2
+              1.7
             </td>
             <td
               class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-1ex1afd-MuiTableCell-root"

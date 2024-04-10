@@ -87,10 +87,10 @@ describe("MovieTable", () => {
 
     // Ascending order
     act(() => fireEvent.click(sortScore));
-    expect(getByTestId("movie-0-score").innerHTML).toEqual("0.2");
+    expect(getByTestId("movie-0-score").innerHTML).toEqual("1.7");
 
     // Descending Order
     act(() => fireEvent.click(sortScore));
-    expect(getByTestId("movie-0-score").innerHTML).toEqual("1.3");
+    expect(getByTestId("movie-0-score").innerHTML).toEqual("7.6");
   });
 });

@@ -27,8 +27,7 @@ Backend:
 
 ## Deployment:
 
-    Run
-    - docker compose up
+- `docker compose up`
 
 For simplicity, I've chosen to 'deploy' the built frontend within a docker container utilizing the package [http-server](https://www.npmjs.com/package/http-server).
 

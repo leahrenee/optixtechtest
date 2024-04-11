@@ -28,8 +28,8 @@ export const postData = async <T, R>(path: string, data: T): Promise<R> => {
       method: "POST",
       headers: {
         "content-type": "application/json",
-        body: JSON.stringify(data),
       },
+      body: JSON.stringify(data),
     });
 
     if (res.ok) {
